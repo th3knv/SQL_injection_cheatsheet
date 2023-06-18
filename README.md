@@ -49,7 +49,7 @@ This [SQL injection](https://portswigger.net/web-security/sql-injection) cheat s
 | MySQL | `SELECT @@version `| 
 
 
-##Database contents
+## Database contents
 *You can list the tables that exist in the database, and the columns that those tables contain.*
 
 | Type | String |
