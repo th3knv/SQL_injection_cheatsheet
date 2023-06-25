@@ -1,10 +1,15 @@
 # Sql injection cheat sheets (can be found also [here](https://portswigger.net/web-security/sql-injection/cheat-sheet))
 This [SQL injection](https://portswigger.net/web-security/sql-injection) cheat sheet contains examples of useful syntax that you can use to perform a variety of tasks that often arise when performing SQL injection attacks. 
 
+#
+
+- ***Feel free to open Issue and suggest me cheatsheets to add or fix mistakes i made***
+#
+#
 
 ### First of all, in order to apply those commands with success we need to determine how many ***columns*** does the site/server uses
 ```sql
-` UNION SEELCT NULL,NULL--
+` UNION SELECT NULL,NULL--
 ```
 - And so on you add more `NULL` to test if needed. When you find the correct number of ***columns*** you will use them with the command you want to execute.
 - Example, server needed 2 columns. I removed one column and replaced it with the command i want to execute. 
