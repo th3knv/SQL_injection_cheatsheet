@@ -58,7 +58,7 @@ PostgreSQL 12.15 (Ubuntu 12.15-0ubuntu0.20.04.1) on x86_64-pc-linux-gnu, compile
 ```sql
 ' UNION SELECT version()--
 ```
-![image](https://github.com/th3knv/SQL_injection_cheatsheet/assets/76121926/027ea585-93ef-4247-8452-2451d3801338)
+![image](https://github.com/th3knv/SQL_injection_cheatsheet/assets/76121926/168cccf6-ea84-4da5-8a47-5efac8021f8b)
 
 
 ## String concatenation
@@ -155,7 +155,7 @@ MyDatabase     dbo           Users       Password     varchar
 ' UNION SELECT table_name,NULL FROM information_schema.tables--
  ```
 
-![image](https://github.com/th3knv/sql_cheatsheets/assets/76121926/320a6b49-7f3d-4d7d-beda-f84a3fd7c4ca)
+![image](https://github.com/th3knv/SQL_injection_cheatsheet/assets/76121926/5112fb40-80ba-4281-badf-31ab4289f463)
 
 #
 
