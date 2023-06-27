@@ -7,7 +7,38 @@ This [SQL injection](https://portswigger.net/web-security/sql-injection) cheat s
 #
 #
 
-### First of all, in order to apply those commands with success we need to determine how many ***columns*** does the site/server uses
+### How to detect SQL injection
+*SQL injection can be detected manually by using a systematic set of tests against every entry point in the application. This typically involves:*
+-  Submitting the single quote character ``'`` and looking for errors or other anomalies.
+-  Submitting some SQL-specific syntax that evaluates to the base (original) value of the entry point, and to a different value, and looking for systematic differences in the resulting application responses.
+-  Submitting Boolean conditions such as ``OR 1=1`` and ``OR 1=2``, and looking for differences in the application's responses.
+-  Submitting payloads designed to trigger time delays when executed within a SQL query, and looking for differences in the time taken to respond.
+-  Submitting [OAST](https://portswigger.net/burp/application-security-testing/oast) payloads designed to trigger an out-of-band network interaction when executed within a SQL query, and monitoring for any resulting interactions. 
+
+#
+
+### SQL injection in different parts of the query
+*Most SQL injection vulnerabilities arise within the ``WHERE`` clause of a ``SELECT`` query. This type of SQL injection is generally well-understood by experienced testers.
+But SQL injection vulnerabilities can in principle occur at any location within the query, and within different query types. The most common other locations where SQL injection arises are: 
+
+- In ``UPDATE`` statements, within the updated values or the ``WHERE`` clause.
+- In ``INSERT`` statements, within the inserted values.
+- In ``SELECT`` statements, within the table or column name.
+- In ``SELECT`` statements, within the ``ORDER BY`` clause.
+
+#
+
+### SQL injection examples
+*There are a wide variety of SQL injection vulnerabilities, attacks, and techniques, which arise in different situations. Some common SQL injection examples include:*
+
+- [Retrieving hidden data](https://portswigger.net/web-security/sql-injection#retrieving-hidden-data), where you can modify a SQL query to return additional results.
+- [Subverting application logic](https://portswigger.net/web-security/sql-injection#subverting-application-logic), where you can change a query to interfere with the application's logic.
+- [UNION attacks](https://portswigger.net/web-security/sql-injection/union-attacks), where you can retrieve data from different database tables.
+- [Blind SQL injection](https://portswigger.net/web-security/sql-injection/blind), where the results of a query you control are not returned in the application's responses.
+
+#
+
+### In order to apply ***UNION*** commands with success we need to determine how many ***columns*** does the site/server uses
 ```sql
 ` UNION SELECT NULL,NULL--
 ```
