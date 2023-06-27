@@ -8,7 +8,7 @@ This [SQL injection](https://portswigger.net/web-security/sql-injection) cheat s
 #
 #
 
-### How to detect SQL injection
+## How to detect SQL injection
 *SQL injection can be detected manually by using a systematic set of tests against every entry point in the application. This typically involves:*
 -  Submitting the single quote character ``'`` and looking for errors or other anomalies.
 -  Submitting some SQL-specific syntax that evaluates to the base (original) value of the entry point, and to a different value, and looking for systematic differences in the resulting application responses.
@@ -18,7 +18,7 @@ This [SQL injection](https://portswigger.net/web-security/sql-injection) cheat s
 
 #
 
-### SQL injection in different parts of the query
+## SQL injection in different parts of the query
 *Most SQL injection vulnerabilities arise within the ``WHERE`` clause of a ``SELECT`` query. This type of SQL injection is generally well-understood by experienced testers.
 But SQL injection vulnerabilities can in principle occur at any location within the query, and within different query types. The most common other locations where SQL injection arises are: 
 
@@ -29,7 +29,41 @@ But SQL injection vulnerabilities can in principle occur at any location within 
 
 #
 
-### SQL injection examples
+## Retrieving hidden data
+*Consider a shopping application that displays products in different categories. When the user clicks on the Gifts category, their browser requests the URL:*
+``https://insecure-website.com/products?category=Gifts``
+*This causes the application to make a SQL query to retrieve details of the relevant products from the database:*
+```sql
+SELECT * FROM products WHERE category = 'Gifts' AND released = 1
+```
+ *This SQL query asks the database to return:*
+
+- all details (*)
+- from the products table
+- where the category is Gifts
+- and released is 1.
+
+*The restriction ``released = 1`` is being used to hide products that are not released. For unreleased products, presumably ``released = 0``.*
+
+***An attacker can construct an attack like:***
+```sql
+https://insecure-website.com/products?category=Gifts'--
+```
+***Going further,an attacker can cause the application to display all the products in any category, including categories that they don't know about:***
+```sql
+https://insecure-website.com/products?category=Gifts'+OR+1=1--
+```
+#### Summary 
+``'`` <br>
+``'--`` <br>
+``'OR 1=1--`` & ``'+OR+1=1--`` <br>
+``'OR 1=2--`` & ``'+OR+1=2--`` <br>
+
+***etc..***
+
+#
+
+## SQL injection examples
 *There are a wide variety of SQL injection vulnerabilities, attacks, and techniques, which arise in different situations. Some common SQL injection examples include:*
 
 - [Retrieving hidden data](https://portswigger.net/web-security/sql-injection#retrieving-hidden-data), where you can modify a SQL query to return additional results.
