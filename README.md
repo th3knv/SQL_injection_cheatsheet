@@ -58,7 +58,7 @@ PostgreSQL 12.15 (Ubuntu 12.15-0ubuntu0.20.04.1) on x86_64-pc-linux-gnu, compile
 ```sql
 ' UNION SELECT version()--
 ```
-![image](https://github.com/th3knv/SQL_injection_cheatsheets/assets/76121926/027ea585-93ef-4247-8452-2451d3801338)
+![image](https://github.com/th3knv/SQL_injection_cheatsheet/assets/76121926/027ea585-93ef-4247-8452-2451d3801338)
 
 
 ## String concatenation
