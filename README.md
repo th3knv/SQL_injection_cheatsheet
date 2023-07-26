@@ -145,8 +145,6 @@ PostgreSQL 12.15 (Ubuntu 12.15-0ubuntu0.20.04.1) on x86_64-pc-linux-gnu, compile
 
 ## Database version
 *You can query the database to determine its type and version. This information is useful when formulating more complicated attacks.*
-### ***Dont  forget to add `' UNION` at the beggining and `--` at the end***
-
 
 | Type | String |
 | --- | --- |
@@ -175,7 +173,6 @@ Standard Edition (64-bit) on Windows Server 2016 Standard 10.0 <X64> (Build 1439
 ## `*`
 > This Defines that you might have to add more columns in the code in order for code to work
 
-### ***Dont  forget to add `' UNION` at the beggining and `--` at the end***
 | Type | String |
 | --- | --- |
 | Oracle   | `SELECT table_name,* FROM all_tables` <br> `SELECT column_name,* FROM all_tab_columns WHERE table_name = 'TABLE-NAME-HERE'` |
@@ -226,8 +223,6 @@ Exploting this a bit more,
 
 ## Conditional errors
 *You can test a single boolean condition and trigger a database error if the condition is true.*
-### ***Dont  forget to add `' UNION` at the beggining and `--` at the end***
-
 
 | Type | String |
 | --- | --- |
@@ -240,8 +235,6 @@ Exploting this a bit more,
 
 ## Extracting data via visible error messages
 *You can potentially elicit error messages that leak sensitive data returned by your malicious query.*
-### ***Dont  forget to add `' UNION` at the beggining and `--` at the end***
-
 
 | Type | String |
 | --- | --- |
