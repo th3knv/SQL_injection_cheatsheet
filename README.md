@@ -29,6 +29,15 @@ But SQL injection vulnerabilities can in principle occur at any location within 
 
 #
 
+## Bypassing WAF (Web application firewall) 
+*Sometimes server detects some 'key' words it has set and it blocks them. This means you wont get any result back, but only 500 Error. You can bypass WAF by encoding the url. Otherwords this technique is called ***Url encoding**
+- [CyberChef](https://gchq.github.io/CyberChef/)
+- [Url-encoding-com](https://www.url-encode-decode.com/)
+- [Portswigger's encoding guide](https://portswigger.net/web-security/essential-skills/obfuscating-attacks-using-encodings)
+- [Demonstration & Examples](http://travisaltman.com/encode-your-sql-injection-attacks/)
+
+#
+
 ## Retrieving hidden data
 *Consider a shopping application that displays products in different categories. When the user clicks on the Gifts category, their browser requests the URL:*
 ``https://insecure-website.com/products?category=Gifts``
